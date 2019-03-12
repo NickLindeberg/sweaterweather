@@ -1,0 +1,65 @@
+body {
+  background: url("https://odis.homeaway.com/odis/destination/26a76c70-2082-42b9-8ca6-572905088df1.hw1.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: #000000;
+}
+
+nav {
+  height: 55px;
+}
+
+.nav-logo {
+  background-color: #449DD1;
+  margin-left: 20px;
+  box-shadow: 0 12px 5px 0 rgba(0,0,0,0);
+  border-radius: 20px;
+  color: white;
+}
+
+.reg {
+  float: right;
+  background-color: #44CCFF;
+  margin-right: 20px;
+}
+
+a,button {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+button:hover {
+  background-color: #192BC2;
+  color: #90E0F3;
+  box-shadow: 0 12px 5px 0 rgba(0,0,0,0.24);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.grid-container > div {
+  background-color: #90E0F3 ;
+  padding: 20px 0;
+  font-size: 30px;
+  border-radius: 20px;
+}
+
+section {
+  text-align: center;
+  padding-bottom: 400px;
+  background-color: black;
+  opacity: 0.7;
+  color: white;
+  border-radius: 20px;
+  margin: 20px;
+}
