@@ -49,7 +49,7 @@
 	// This file is in the entry point in your webpack config.
 	$.ajax({
 	  type: "GET",
-	  url: "http://weathersweater.herokuapp.com/api/v1/forecast?location=chicago,il"
+	  url: "http://weathersweater.herokuapp.com/api/v1/forecast?location=denver,co"
 	}).then(function (details) {
 	  currentWeather(details);
 	  currentDetails(details);
