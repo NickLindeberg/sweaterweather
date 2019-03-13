@@ -49,7 +49,7 @@
 	// This file is in the entry point in your webpack config.
 	$.ajax({
 	  type: "GET",
-	  url: "http://weathersweater.herokuapp.com/api/v1/forecast?location=denver,co"
+	  url: "http://weathersweater.herokuapp.com/api/v1/forecast?location=chicago,il"
 	}).then(function (details) {
 	  currentWeather(details);
 	  currentDetails(details);
@@ -74,6 +74,11 @@
 	  document.getElementById("feels-like").innerHTML = Math.round(current["temperature"]);
 	  document.getElementById("humidity").innerHTML = current["humidity"] * 100;
 	  document.getElementById("visibility").innerHTML = current["visibility"];
+	  document.getElementById("uv-index").innerHTML = current["uv_index"];
+	  details["data"]["attributes"]["daily"][0]["summary"];
+
+	  document.getElementById("summary-day").innerHTML = details["data"]["attributes"]["daily"][0]["summary"];
+	  document.getElementById("summary-night").innerHTML = details["data"]["attributes"]["daily"][7]["summary"];
 	}
 
 	function dailyWeather(details) {
@@ -82,11 +87,9 @@
 	};
 
 	function hourlyWeather(details) {
-	  var hourly = details["data"]["attributes"]["hourly"].slice(0, 8);
+	  var hourly = details["data"]["attributes"]["hourly"].slice(0, 12);
 	  return hourly;
 	};
-
-	module.exports = parseThatData;
 
 /***/ })
 /******/ ]);
