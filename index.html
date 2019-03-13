@@ -12,20 +12,36 @@
     src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
   </script>
 
+
+
+
   <nav>
     <a class="nav-logo">SweaterWeather</a>
     <button class="reg" href="#">Login</button>
     <button class="reg" href="#">Sign Up</button>
   </nav>
 
-
   <div class="grid-container">
-    <div>Daily</div>
-    <div>Info</div>
+    <div class="current">
+      <div id="current-location"></div>
+      <div id="current-time"></div>
+      <div id="current-summary"></div>
+      <h1><span id="current-temp"></span>&#176;</h1>
+      <h3>High <span id="today-high"></span>&#176;</h3>
+      <h3>Low <span id="today-low"></span>&#176;</h3>
+    </div>
+    <div class="details">
+      <h3>Feels Like <span id="feels-like"></span>&#176;</h3>
+      <h3>Humidity <span id="humidity"></span>%</h3>
+      <h3>Visibility <span id="visibility"></span> miles</h3>
+      <h3>UV Index <span id="uv-index"></span></h3>
+      <h3>Today <span id="summary-day"></span></h3>
+      <h3>Tonight <span id="summary-night"></span></h3>
+    </div>
   </div>
 
   <section>
-    <h1>This is the main body</h1>
+    <h1>Forecast</h1>
   </section>
   <script src="main.bundle.js"></script>
 </body>
