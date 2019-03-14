@@ -47,24 +47,27 @@
 	"use strict";
 
 	// This file is in the entry point in your webpack config.
-	$.ajax({
-	  type: "GET",
-	  url: "http://weathersweater.herokuapp.com/api/v1/forecast?location=denver,co"
-	}).then(function (details) {
-	  currentWeather(details);
-	  currentDetails(details);
-	  dailyWeather(details);
-	  hourlyWeather(details);
-	}).catch(function (error) {});
+
+	// var now = moment().format("MMM Do YYYY");
+
+	function findCity() {
+	  var cityData = document.getElementById("citySearch").value;
+	  $.get("http://weathersweater.herokuapp.com/api/v1/forecast?location=" + cityData).then(function (details) {
+	    currentWeather(details);
+	    currentDetails(details);
+	    dailyWeather(details);
+	    hourlyWeather(details);
+	  }).catch(function (error) {});
+	};
 
 	function currentWeather(details) {
 	  var currently = details["data"]["attributes"]['currently'];
-	  var location = details["data"]['id'];
+	  var cityTitle = details["data"]['id'];
 	  var today = details["data"]["attributes"]["daily"][0];
-	  document.getElementById("current-location").innerHTML = location.toUpperCase();
+	  document.getElementById("current-location").innerHTML = cityTitle.toUpperCase();
 	  document.getElementById("current-summary").innerHTML = currently["summary"];
 	  document.getElementById("current-temp").innerHTML = Math.round(currently["temperature"]);
-	  document.getElementById("current-time").innerHTML = currently["time"];
+	  // document.getElementById("current-time").innerHTML = moment().format("MMM Do YYYY");
 	  document.getElementById("today-high").innerHTML = Math.round(today["high"]);
 	  document.getElementById("today-low").innerHTML = Math.round(today["low"]);
 	};
@@ -90,6 +93,8 @@
 	  var hourly = details["data"]["attributes"]["hourly"].slice(0, 12);
 	  return hourly;
 	};
+
+	window.findCity = findCity;
 
 /***/ })
 /******/ ]);
