@@ -48,8 +48,6 @@
 
 	// This file is in the entry point in your webpack config.
 
-	// var now = moment().format("MMM Do YYYY");
-
 	function findCity() {
 	  var cityData = document.getElementById("citySearch").value;
 	  $.get("http://weathersweater.herokuapp.com/api/v1/forecast?location=" + cityData).then(function (details) {
@@ -67,7 +65,7 @@
 	  document.getElementById("current-location").innerHTML = cityTitle.toUpperCase();
 	  document.getElementById("current-summary").innerHTML = currently["summary"];
 	  document.getElementById("current-temp").innerHTML = Math.round(currently["temperature"]);
-	  // document.getElementById("current-time").innerHTML = moment().format("MMM Do YYYY");
+	  document.getElementById("current-time").innerHTML = currently["time"];
 	  document.getElementById("today-high").innerHTML = Math.round(today["high"]);
 	  document.getElementById("today-low").innerHTML = Math.round(today["low"]);
 	};
@@ -86,12 +84,19 @@
 
 	function dailyWeather(details) {
 	  var daily = details["data"]["attributes"]["daily"];
-	  return daily;
+	  var day;
+	  for (var day = 0; day < 8; day++) {
+	    debugger;
+	    document.getElementById("each-day").innerHTML += daily[day].time + " " + daily[day].icon + " " + daily[day].summary + " " + daily[day].precipitation + " " + daily[day].high + " " + daily[day].low + "<br>";
+	  }
 	};
 
 	function hourlyWeather(details) {
-	  var hourly = details["data"]["attributes"]["hourly"].slice(0, 12);
-	  return hourly;
+	  var hourly = details["data"]["attributes"]["hourly"].slice(0, 8);
+	  var hour;
+	  for (var hour = 0; hour < 9; hour++) {
+	    document.getElementById("hour").innerHTML += hourly[hour].time.split(" ")[3] + " " + hourly[hour].icon + " " + Math.round(hourly[hour].temp) + "<br>";
+	  }
 	};
 
 	window.findCity = findCity;
