@@ -6,8 +6,6 @@
   <link rel="stylesheet" type="text/css" href="./lib/styles.css" />
 </head>
 <body>
-      <!--  the a tag below can link you to another HTML page  -->
-      <!--  if you click the button in the browser right now, you'll get an error because that is not a real file path -->
   <script
     src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
   </script>
@@ -15,14 +13,31 @@
   <nav>
     <a class="nav-logo">SweaterWeather</a>
     <button class="reg" href="#">Login</button>
-    <button class="reg" href="#">Sign Up</button>
+    <button class="reg" id="sign-up" href="#" onclick="signUpModal()">Sign Up</button>
     <button class="reg" href="#" onclick="findCity()">Search</button>
-    <input type="text" class"reg" name="" id="citySearch" value="City">
+    <input type="text" class"reg" name="" id="citySearch" placeholder="City">
   </nav>
+
+  <div id="sign-up-modal" class="modal">
+  <div class="modal-content">
+    <div class="close">&times;</div>
+    <div>
+      <input type="email" class"up" name="" placeholder="email">
+    </div>
+    <div>
+      <input type="password" class"up" name="" id="pw" placeholder="password">
+    </div>
+    <div>
+      <input type="password" class"up" name="" id="pwconfirm" placeholder="password">
+    </div>
+    <button type="button" name="Sign Up">Sign Up</button>
+  </div>
+
+</div>
 
   <div class="grid-container">
     <div class="current">
-      <input id="toggle-heart" onclick="" type="checkbox" />
+      <input id="toggle-heart" type="checkbox" />
       <label for="toggle-heart">❤</label>
       <div id="current-location"></div>
       <div id="current-time"></div>
@@ -31,7 +46,6 @@
       <h3>High <span id="today-high"></span>&#176;</h3>
       <h3>Low <span id="today-low"></span>&#176;</h3>
     </div>
-
     <div class="details">
       <h3>Feels Like <span id="feels-like"></span>&#176;</h3>
       <h3>Humidity <span id="humidity"></span>%</h3>
