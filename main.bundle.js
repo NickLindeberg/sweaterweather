@@ -83,15 +83,17 @@
 	}
 
 	function dailyWeather(details) {
+	  document.getElementById("each-day").innerHTML = "";
 	  var daily = details["data"]["attributes"]["daily"];
 	  var day;
 	  for (var day = 0; day < 8; day++) {
 	    debugger;
-	    document.getElementById("each-day").innerHTML += daily[day].time + " " + daily[day].icon + " " + daily[day].summary + " " + daily[day].precipitation + " " + daily[day].high + " " + daily[day].low + "<br>";
+	    document.getElementById("each-day").innerHTML += daily[day].time.split(" ")[0] + " " + daily[day].icon + " " + daily[day].summary + " " + daily[day].precipitation + " " + daily[day].high + " " + daily[day].low + "<br>";
 	  }
 	};
 
 	function hourlyWeather(details) {
+	  document.getElementById("hour").innerHTML = "";
 	  var hourly = details["data"]["attributes"]["hourly"].slice(0, 8);
 	  var hour;
 	  for (var hour = 0; hour < 9; hour++) {
@@ -99,6 +101,24 @@
 	  }
 	};
 
+	function signUpModal() {
+	  var btn = document.getElementById("myBtn");
+	  //
+	  // // Get the <span> element that closes the modal
+	  var span = document.getElementsByClassName("close")[0];
+
+	  // When the user clicks the button, open the modal
+	  btn.onclick = function () {
+	    modal.style.display = "block";
+	  };
+
+	  // When the user clicks on <span> (x), close the modal
+	  span.onclick = function () {
+	    modal.style.display = "none";
+	  };
+	}
+
+	window.signUpModal = signUpModal;
 	window.findCity = findCity;
 
 /***/ })
