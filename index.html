@@ -12,6 +12,7 @@
 
   <nav>
     <a class="nav-logo">SweaterWeather</a>
+
     <button class="reg" href="#">Login</button>
     <button class="reg" id="sign-up" href="#" onclick="signUpModal()">Sign Up</button>
     <button class="reg" href="#" onclick="findCity()">Search</button>
@@ -37,6 +38,8 @@
 
   <div class="grid-container">
     <div class="current">
+      <input id="toggle-heart" type="checkbox" />
+      <label for="toggle-heart">❤</label>
       <div id="current-location"></div>
       <div id="current-time"></div>
       <div id="current-summary"></div>
